@@ -1,6 +1,6 @@
 ---
-title: Awesome title for your research paper
-author: Urtzi Enriquez Urzelai
+title: Estudi sobre la dieta de l'òliba
+author: Ane Aramburu i Ruben Ripolles
 date: "`r Sys.Date()`"
 output: 
     pdf_document:
