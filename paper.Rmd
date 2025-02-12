@@ -1,6 +1,6 @@
 ---
 title: Estudi sobre la dieta de l'òliba
-author: Ane Aramburu i Ruben Ripolles
+author: Ane Aramburu i Ruben Ripolless
 date: "`r Sys.Date()`"
 output: 
     pdf_document:
