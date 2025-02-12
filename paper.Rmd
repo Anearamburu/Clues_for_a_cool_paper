@@ -82,6 +82,8 @@ The results are awesome. I found that F(`r anova_res[1,"Df"]`; `r anova_res[4,"D
 
 # 4. Discussion
 
+Discussió paper òliba Ane.
+
 Write here the discussion of your paper. You can always add references like [@sutton2008].
 
 Write here the discussion of your paper.
@@ -96,4 +98,6 @@ with(iris, plot(Petal.Length ~ Petal.Width * Species))
 
 
 Write here the discussion of your paper.
+
+PROVA CANVIS!
 
