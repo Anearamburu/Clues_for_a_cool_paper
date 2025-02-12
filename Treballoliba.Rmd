@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy.opts = list(width.cutoff = 40), tidy = T
 ```
 
 # 1. Introduction
-L'òliba és una espècie
+L'òliba és una espècie que està clasificada com amenzada dintre de l'estat. 
 
 # 2. Materials and Methods
 
