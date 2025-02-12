@@ -1,0 +1,99 @@
+---
+title: Awesome title for your research paper
+author: Urtzi Enriquez Urzelai
+date: "`r Sys.Date()`"
+output: 
+    pdf_document:
+        citation_package: natbib
+bibliography: bibliography.bib
+abstract: "This is a document to showcase how github repos can be used, 
+in combination with other things to create reproducible papers.
+Our aim is not to make a *real* paper, but to show how these tools can be used. 
+Sometimes it takes some time to create these files, but ultimatelly they
+save us a lot of time, specially when we have to re-do analyses etc. \n
+
+In this document I go through some stupid analyses but I hope the documents 
+will be of use for you in the future ;)
+"
+---
+
+```{r setup, include=FALSE, echo=F, message=F, warning=F}
+# I will load all the packages here
+library(knitr)
+library(interactions)
+
+knitr::opts_chunk$set(echo = TRUE, tidy.opts = list(width.cutoff = 40), tidy = TRUE)
+```
+
+# 1. Introduction
+We all know this dataset known as iris. It is available directly from R and it has this and that variables.
+
+This species are awesome and I could show you a picture here.
+
+This introduction should be longer and more interesting... but it's not the point of this document.
+
+# 2. Materials and Methods
+
+### 2.1. Data
+I will use the data directly from R, but I already wrote the csv file into de `./raw_data` folder. 
+That is the raw data, but for some reason, we decided to remove 20 individuals randomly from the dataset, 
+and save that into the `./data` folder.
+
+That cleaning script can be called from inside the Rmarkdown file, whenever we need it (e.g. if we modify
+the script) adding `eval = TRUE`, or we can skip the chunk of code by setting `eval = FALSE`.
+
+```{r, echo=F, message=F, warning=F, eval = FALSE}
+source("./analyses/0_clean_data.R")
+iris <- read.csv("./data/iris.csv", stringsAsFactors = TRUE)
+```
+
+And if we are happy with our cleaning, we could just read in the cleaned dataset.
+
+```{r, echo=F, message=F, warning=F}
+iris <- read.csv("./data/iris.csv", stringsAsFactors = TRUE)
+```
+
+### 2.2. Analyses
+I performed a bunch of stupid analyses in different scripts, so that, only those can be changed if needed.
+
+Here you can include equations or formulas in the \LaTeX\ format. For instance, you can inline equations: $response \sim predictor_1 * predictor_2$
+
+Or $$ y_{ij} = b_{ij} + \beta_{0} + \beta_{1} $$
+
+# 3. Results
+
+We did a PCA and here are the results are shown in Figure 1.
+
+```{r, echo=F, fig.cap="PCA plot."}
+source("./analyses/1_pca.R")
+```
+
+\newpage 
+
+The results of the ANOVA can be found in Table 1, testing for the relationship between this and that, using the species as a factor.
+
+```{r, echo=F}
+source("./analyses/2_lm.R")
+kable(anova_res,
+    caption = "ANOVA table for some stupid analysis.")
+```
+
+The results are awesome. I found that F(`r anova_res[1,"Df"]`; `r anova_res[4,"Df"]`)=`r format(anova_res[1,"F value"], digits = 2, nsmall = 2)`, *P-value* = `r format(anova_res[1,"Pr(>F)"], digits = 2, nsmall = 2)`
+
+# 4. Discussion
+
+Write here the discussion of your paper. You can always add references like [@sutton2008].
+
+Write here the discussion of your paper.
+
+\newpage 
+
+```{r, fig.cap="Another stupid plot.", fig.height = 2.5, fig.width = 4, fig.pos = "!h"}
+
+par(mfrow=c(1,2))
+with(iris, plot(Petal.Length ~ Petal.Width * Species))
+```
+
+
+Write here the discussion of your paper.
+
